@@ -44,6 +44,7 @@ export default function ShowUserInfo({userData}){
                 </div>
             </div>
             <div className='list-repos-section'>
+                <p>Repositories</p>
                 <table>
                     <thead>
                         <th>Name</th>
