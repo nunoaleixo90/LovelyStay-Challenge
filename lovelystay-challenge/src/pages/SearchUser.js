@@ -1,10 +1,12 @@
 import { useState } from "react";
 import '../styles/SearchUsers.css';
-import {BiSearchAlt} from 'react-icons/bi'
+import {BiSearchAlt} from 'react-icons/bi';
+import {useNavigate} from 'react-router-dom';
+
 
 export default function SearchUser({setUserData}){
     const [username, setUsername] = useState('');
-
+    let navigate = useNavigate();
     const fetchUsers = async () => {
         if(username !==''){
             await fetch(`https://api.github.com/users/${username}`)
@@ -19,12 +21,12 @@ export default function SearchUser({setUserData}){
             .then((data) => {
                 setUserData(data);
                 setUsername('');
+                navigate('/user-info');
             })
             .catch(e => alert('Username Not Found'));
         } else {
             alert('Please type a username');
         }
-        
     }
         
     return(
