@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styles/SearchUsers.css';
+import './SearchUsers.css';
 import {BiSearchAlt} from 'react-icons/bi';
 import {BsGithub} from 'react-icons/bs';
 import {DiGithubFull} from 'react-icons/di';

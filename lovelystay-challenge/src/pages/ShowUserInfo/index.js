@@ -1,4 +1,4 @@
-import '../styles/ShowUserInfo.css';
+import './ShowUserInfo.css';
 import {useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 

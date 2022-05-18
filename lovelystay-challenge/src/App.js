@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import SearchUser from "./pages/SearchUser";
-import ShowUserInfo from './pages/ShowUserInfo';
+import SearchUser from "./pages/SearchUser/index.js.js";
+import ShowUserInfo from './pages/ShowUserInfo/index.js';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 
 function App() {
