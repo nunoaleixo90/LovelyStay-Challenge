@@ -3,12 +3,13 @@ import './SearchUsers.css';
 import {BiSearchAlt} from 'react-icons/bi';
 import {BsGithub} from 'react-icons/bs';
 import {DiGithubFull} from 'react-icons/di';
-import {useNavigate} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 
 
 export default function SearchUser({setUserData}){
     const [username, setUsername] = useState('');
-    let navigate = useNavigate();
+    const [success, setSuccess] = useState(false);
+
     const fetchUsers = async () => {
         if(username !==''){
             await fetch(`https://api.github.com/users/${username}`)
@@ -23,7 +24,7 @@ export default function SearchUser({setUserData}){
             .then((data) => {
                 setUserData(data);
                 setUsername('');
-                navigate('/user-info');
+                setSuccess(true);
             })
             .catch(e => alert('Username Not Found'));
         } else {
@@ -39,7 +40,8 @@ export default function SearchUser({setUserData}){
             </div>
             <div className="search-section">
                 <input className="search-input" type='text' placeholder="Type a username..." onChange={(e)=>setUsername(e.target.value)} autoFocus/>
-                <button className="search-button" type="submit" onClick={fetchUsers}><BiSearchAlt/></button>
+                <button data-testid="button" className="search-button" type="submit" onClick={fetchUsers}><BiSearchAlt/></button>
+                {success && <Navigate to='/user-info' /> }
             </div>
         </div>
     )
