@@ -1,10 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import SearchUser from './index.js';
 
-describe('Search User', ()=>{
-    test('first screen test', () => {
-        render(<SearchUser/>);
+describe('Search User Page', ()=>{
+    test('render without crashing', () => {
+        const div = document.createElement('div');
+        render(<SearchUser/>, div);
     
-        screen.debug();
+    })
+    test('renders input correctly', () => {
+        render(<SearchUser/>);
+        expect(screen.getByPlaceholderText('Type a username...')).toBeInTheDocument();
     })
 })
